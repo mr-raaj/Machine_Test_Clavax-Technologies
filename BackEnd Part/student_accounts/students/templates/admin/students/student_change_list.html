@@ -1,0 +1,29 @@
+<!-- templates/admin/app_name/student/change_list.html -->
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  {{ block.super }}
+  <form method="post" action="">
+    {% csrf_token %}
+    <label for="action">Choose action:</label>
+    <select name="action" required>
+      <option value="" selected>---------</option>
+      <option value="activate_students">Activate selected students</option>
+      <option value="deactivate_students">Deactivate selected students</option>
+    </select>
+    <input type="submit" value="Go">
+    <input type="hidden" name="action" value="activate_students" />
+    <input type="hidden" name="_selected_action" value="{{ selected_action }}" />
+  </form>
+{% endblock %}
+
+{% block result_list %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'admin/js/actions.js' %}"></script>
+  <script type="text/javascript" src="{% static 'admin/js/calendar.js' %}"></script>
+  <script type="text/javascript" src="{% static 'admin/js/admin/RelatedObjectLookup.js' %}"></script>
+  <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+  <script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+  <script type="text/javascript" src="{% static 'admin/js/actions.js' %}"></script>
+  <script type="text/javascript" src="{% static 'admin/js/vendor/xregexp/xregexp.js' %}"></script>
+{% endblock %}

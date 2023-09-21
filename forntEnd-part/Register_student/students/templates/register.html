@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        /* Add your CSS styles here */
+        /* For example, style the form fields, labels, and buttons */
+    </style>
+</head>
+<body>
+    <button type="submit"><a href="/">Home</a></button>
+    <h1>Student Registration Form</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="first_name" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="last_name" required><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="date_of_birth" required><br><br>
+
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            <option value="inactive" selected>Inactive</option>
+            <option value="active">Active</option>
+        </select><br><br>
+
+        <label for="image">Image Upload:</label>
+        <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+        <label for="class">Select Class:</label>
+        <select id="class" name="selected_class">
+            <option value="class1">Class 1</option>
+            <option value="class2">Class 2</option>
+            <!-- Add more class options here -->
+        </select><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show student details</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <button type="button"><a href="register">Register Query</a></button>
+<br>
+    <table border="1px" cellpadding="10px">
+        <tr>
+            <th>ID</th>
+            <th>firstName</th>
+            <th>LastName</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>date_of_birth</th>
+            <th>Status</th>
+            <th>Image</th>
+            <th>selected_class</th>
+           
+        </tr>
+
+        {% for d in data %}
+        <tr>
+            <th>{{d.ID}}</th>
+            <th>{{d.first_name}}</th>
+            <th>{{d.last_name}}</th>
+            <th>{{d.phone}}</th>
+            <th>{{d.email}}</th>
+            <th>{{d.date_of_birth}}</th>
+            <th>{{d.status}}</th>
+            <th><img src="{{d.image.url}}" width="100px" height="80px" class="rounded" alt=""></th>
+            <th>{{d.selected_class}}</th>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
